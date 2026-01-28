@@ -18,7 +18,6 @@ export default function Nav() {
     if (completed) {
       return <Completionist />;
     } else {
-      // Calculate total hours including days
       const totalHours = days * 24 + hours;
       return (
         <span className="countdown-timer">

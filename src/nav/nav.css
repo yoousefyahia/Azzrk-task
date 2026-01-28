@@ -50,7 +50,6 @@
     z-index: 50;
 }
 
-/* Left Side - Dark Section */
 .nav-left {
     display: flex;
     align-items: center;
@@ -58,7 +57,6 @@
     gap: 15px;
 }
 
-/* Right Side - Orange Section */
 .nav-right {
     display: flex;
     align-items: center;
@@ -66,7 +64,6 @@
     gap: 30px;
 }
 
-/* Navigation Links */
 .nav-links {
     display: flex;
     list-style: none;
@@ -141,9 +138,6 @@
     border-radius: 0;
 }
 
-
-
-/* Logo */
 .logo {
     background-color: white;
     width: 45px;
@@ -159,10 +153,8 @@
     color: #E43A19;
 }
 
-/* Mobile Menu Overlay */
 .mobile-menu-overlay {
     display: none;
-    /* hidden on desktop */
 }
 
 /* Responsive */
@@ -177,27 +169,27 @@
 
     .main-nav {
         flex-direction: row;
-        height: 80px;
-        background: none;
+        height: 65px;
+        background: linear-gradient(to right, #0C1944 65%, #E43A19 65%);
         position: relative;
         z-index: 100;
-        /* Above menu */
+        gap: 0;
     }
 
     .nav-left {
         width: 65%;
         flex: 0 0 65%;
-        background-color: #0C1944;
-        padding-left: 20px;
+        background-color: transparent;
+        padding-left: 15px;
         justify-content: flex-start;
-        padding: 0 20px;
+        padding: 0 15px;
         box-sizing: border-box;
     }
 
     .nav-right {
         width: 35%;
         flex: 0 0 35%;
-        background-color: #E43A19;
+        background-color: transparent;
         padding-right: 0;
         justify-content: center;
         padding: 0;
@@ -219,12 +211,17 @@
     }
 
     .logo {
-        width: 25px;
-        height: 25px;
+        width: 35px;
+        height: 35px;
         background: white;
     }
 
-    /* Mobile Menu Overlay Styling */
+    .logo svg {
+        font-size: 20px !important;
+        width: 25px !important;
+        height: 25px !important;
+    }
+
     .mobile-menu-overlay {
         display: flex;
         flex-direction: column;

@@ -21,8 +21,7 @@
 
 .hero-title {
     font-size: 3.5rem;
-    /* Large font size */
-    font-weight: 800;
+    font-weight: 700;
     line-height: 1.2;
     margin-bottom: 20px;
     position: relative;
@@ -41,7 +40,7 @@
 
 .hero-subtitle {
     font-size: 1.2rem;
-    font-weight: 300;
+    font-weight: 400;
     margin-bottom: 30px;
     opacity: 0.9;
     line-height: 1.6;
@@ -80,6 +79,22 @@
     max-width: 100%;
     height: auto;
     object-fit: cover;
+}
+
+.fade-in {
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
 
 /* Side Indicators */
@@ -130,20 +145,17 @@
     z-index: 0;
 }
 
-/* Background overlay or gradient on the right side if needed */
 .hero-section::after {
     content: '';
     position: absolute;
     top: 0;
     right: 0;
     width: 10%;
-    /* Just the very edge */
     height: 100%;
     background: linear-gradient(to left, rgba(228, 58, 25, 0.1), transparent);
     pointer-events: none;
 }
 
-/* Responsive adjustments */
 @media (max-width: 768px) {
     .hero-section {
         display: grid;
@@ -160,12 +172,9 @@
         min-height: 600px;
     }
 
-    /* The Orange Background on the Right Side (Top to Middle) */
     .orange-block-top {
         width: 35%;
-        /* Matching Nav-Right width */
         height: 30%;
-        /* Extends down */
         z-index: 0;
     }
 
@@ -204,16 +213,15 @@
         pointer-events: none;
     }
 
-    /* Top Text "Elegance..." */
     .hero-title {
         position: absolute;
-        top: 15%;
+        top: 12%;
         left: 20px;
         text-align: right;
         writing-mode: horizontal-tb;
         direction: rtl;
-        width: 180px;
-        font-size: 2.5rem;
+        width: 250px;
+        font-size: 2.2rem;
         z-index: 20;
         pointer-events: auto;
         color: white;
@@ -256,7 +264,6 @@
         border: 1px solid rgba(255, 255, 255, 0.3);
     }
 
-    /* Orange Block Bottom Left */
     .orange-block {
         width: 40%;
         height: 35%;
@@ -265,13 +272,10 @@
         z-index: 1;
     }
 
-    /* Indicators */
     .hero-indicators {
         display: flex;
-        /* Show them! */
         top: 40%;
         right: 10px;
-        /* On the orange strip */
         color: white;
         font-size: 1.2rem;
     }
