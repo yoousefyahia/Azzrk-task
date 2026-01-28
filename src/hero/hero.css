@@ -146,24 +146,145 @@
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .hero-section {
-        flex-direction: column-reverse;
-        justify-content: center;
-        text-align: center;
-        padding: 40px 20px;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto 1fr;
+        padding: 0;
+        background-color: #0C1944;
+        min-height: auto;
     }
 
+    .hero-section {
+        display: block;
+        height: auto;
+        min-height: 600px;
+    }
+
+    /* The Orange Background on the Right Side (Top to Middle) */
+    .orange-block-top {
+        width: 35%;
+        /* Matching Nav-Right width */
+        height: 30%;
+        /* Extends down */
+        z-index: 0;
+    }
+
+    .hero-image-container {
+        margin-top: 50px;
+        z-index: 5;
+    }
+
+    .hero-img {
+        width: 100%;
+        max-width: 300px;
+        max-height: 500px;
+        height: 300px;
+        display: block;
+        margin: 0 auto;
+        position: relative;
+        left: 0;
+    }
+
+    /* Text Overlays */
     .hero-content {
-        text-align: center;
-        max-width: 100%;
-        margin-top: 30px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 10;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin: 0;
+        padding: 20px;
+        max-width: none;
+        box-sizing: border-box;
+        text-align: right;
+        pointer-events: none;
     }
 
+    /* Top Text "Elegance..." */
+    .hero-title {
+        position: absolute;
+        top: 15%;
+        left: 20px;
+        text-align: right;
+        writing-mode: horizontal-tb;
+        direction: rtl;
+        width: 180px;
+        font-size: 2.5rem;
+        z-index: 20;
+        pointer-events: auto;
+        color: white;
+        line-height: 1.2;
+    }
+
+    .hero-title .outline-text {
+        color: transparent;
+        -webkit-text-stroke: 1px white;
+        font-weight: 700;
+        display: inline;
+    }
+
+    .hero-title .solid-text {
+        color: white;
+        -webkit-text-stroke: 0;
+        display: inline;
+    }
+
+    /* Bottom Section */
+    .hero-subtitle {
+        position: absolute;
+        bottom: 120px;
+        right: 20px;
+        text-align: right;
+        font-size: 1rem;
+        color: white;
+        margin: 0;
+        max-width: 60%;
+        pointer-events: auto;
+    }
+
+    .shop-btn {
+        position: absolute;
+        bottom: 50px;
+        right: 20px;
+        margin: 0;
+        pointer-events: auto;
+        background: transparent;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    /* Orange Block Bottom Left */
     .orange-block {
-        width: 50%;
-        height: 20%;
+        width: 40%;
+        height: 35%;
+        bottom: 0;
+        left: 0;
+        z-index: 1;
     }
 
+    /* Indicators */
     .hero-indicators {
-        display: none;
+        display: flex;
+        /* Show them! */
+        top: 40%;
+        right: 10px;
+        /* On the orange strip */
+        color: white;
+        font-size: 1.2rem;
     }
+
+    .hero-indicators span {
+        display: block;
+        margin-bottom: 20px;
+        opacity: 0.6;
+    }
+
+    .hero-indicators span.active {
+        opacity: 1;
+        font-size: 1.4rem;
+    }
+
 }

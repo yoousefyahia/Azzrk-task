@@ -1,10 +1,17 @@
+import { useState } from "react";
 import "./nav.css";
 import Countdown from "react-countdown";
 import { CiSearch, CiUser, CiHeart } from "react-icons/ci";
 import { IoCartOutline } from "react-icons/io5";
-import { FaRunning } from "react-icons/fa"; 
+import { FaRunning, FaThLarge, FaTimes } from "react-icons/fa"; 
 
 export default function Nav() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
   const Completionist = () => <span>Ended!</span>;
 
   const renderer = ({ days, hours, minutes, seconds, completed }) => {
@@ -35,6 +42,11 @@ export default function Nav() {
       <nav className="main-nav">
         {/* Left Side - Icons */}
         <div className="nav-left">
+          {/* Mobile Menu Icon */}
+          <button className="icon-btn mobile-menu-btn" onClick={toggleMenu}>
+             {isMenuOpen ? <FaTimes size={24} /> : <FaThLarge size={24} />}
+          </button>
+
           <div className="cart-container">
             <button className="icon-btn cart-btn">
               <IoCartOutline width={41} height={40} color="white" />
@@ -54,7 +66,7 @@ export default function Nav() {
 
         {/* Right Side - Menu & Logo */}
         <div className="nav-right">
-          <ul className="nav-links">
+          <ul className={`nav-links ${isMenuOpen ? "active" : ""}`}>
             <li><a href="#" >التخفيضات</a></li>
             <li><a href="#">جميع المنتجات</a></li>
             <li><a href="#">الأقسام</a></li>
@@ -65,6 +77,24 @@ export default function Nav() {
           </div>
         </div>
       </nav>
+
+      {/* Mobile Menu Overlay */}
+      {isMenuOpen && (
+        <div className="mobile-menu-overlay">
+           <ul className="mobile-nav-links">
+            <li><a href="#">الرئيسية</a></li>
+            <li><a href="#">الأقسام</a></li>
+            <li><a href="#">جميع المنتجات</a></li>
+            <li><a href="#" >التخفيضات</a></li>
+          </ul>
+          <div className="mobile-menu-icons">
+             <button className="icon-btn search-btn-mobile"><CiSearch size={24}/></button>
+             <button className="icon-btn user-btn-mobile"><CiUser size={24}/></button>
+             <button className="icon-btn heart-btn-mobile"><CiHeart size={24}/></button>
+             <button className="icon-btn cart-btn-mobile"><IoCartOutline size={24}/></button>
+          </div>
+        </div>
+      )}
     </header>
   );
 }
